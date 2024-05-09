@@ -19,8 +19,8 @@ func main() {
 	}
 
 	// Define routes
-	http.HandleFunc("/images/cats", images.GetRandomCatImage)
-	http.HandleFunc("/images/xiaojie", images.GetRandomXiaojieImage)
+	http.HandleFunc("/v1/images/cats", images.GetRandomCatImage)
+	http.HandleFunc("/v1/images/xiaojie", images.GetRandomXiaojieImage)
 
 	// Custom 404 page
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
