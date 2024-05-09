@@ -8,9 +8,9 @@ import (
 
 func generateXiaojieImages() []string {
 	var images []string
-	baseURL := "https://cdn.hamzie.us.to/Hamzie-API/images/cats/%d.webp"
+	baseURL := "https://cdn.hamzie.us.to/Hamzie-API/images/xiaojie/%d.jpg"
 
-	for i := 1; i <= 130; i++ {
+	for i := 1; i <= 135; i++ {
 		imageURL := fmt.Sprintf(baseURL, i)
 		images = append(images, imageURL)
 	}
