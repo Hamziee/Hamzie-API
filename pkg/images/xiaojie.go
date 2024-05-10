@@ -1,6 +1,7 @@
 package images
 
 import (
+	"encoding/json"
 	"fmt"
 	"math/rand"
 	"net/http"
@@ -20,9 +21,24 @@ func generateXiaojieImages() []string {
 
 var XiaojieImages = generateXiaojieImages()
 
+type ImageResponse struct {
+	Link string `json:"link"`
+}
+
 func GetRandomXiaojieImage(w http.ResponseWriter, r *http.Request) {
 	randomIndex := rand.Intn(len(XiaojieImages))
 	randomCat := XiaojieImages[randomIndex]
 
-	http.Redirect(w, r, randomCat, http.StatusFound)
+	response := ImageResponse{
+		Link: randomCat,
+	}
+
+	jsonResponse, err := json.Marshal(response)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(jsonResponse)
 }
