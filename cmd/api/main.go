@@ -10,8 +10,8 @@ import (
 
 func main() {
 	// Define default port
-	port := ":5554" // Dev port
-	//port := ":5555" // Default port for production
+	//port := ":5554" // Dev port
+	port := ":5555" // Default port for production
 
 	// Check if any arguments are provided
 	if len(os.Args) > 1 {
