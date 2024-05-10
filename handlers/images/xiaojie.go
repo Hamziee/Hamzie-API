@@ -11,7 +11,7 @@ func generateXiaojieImages() []string {
 	var images []string
 	baseURL := "https://cdn.hamzie.site/Hamzie-API/images/xiaojie/%d.jpg"
 
-	for i := 1; i <= 135; i++ {
+	for i := 1; i <= 139; i++ {
 		imageURL := fmt.Sprintf(baseURL, i)
 		images = append(images, imageURL)
 	}
