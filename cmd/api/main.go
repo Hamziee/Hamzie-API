@@ -5,12 +5,13 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/Hamziee/Hamzie-API/pkg/images"
+	"github.com/Hamziee/Hamzie-API/handlers/images"
 )
 
 func main() {
 	// Define default port
-	port := ":8080"
+	port := ":5554" // Dev port
+	//port := ":5555" // Default port for production
 
 	// Check if any arguments are provided
 	if len(os.Args) > 1 {
