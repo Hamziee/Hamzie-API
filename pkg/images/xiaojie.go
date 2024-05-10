@@ -9,7 +9,7 @@ import (
 
 func generateXiaojieImages() []string {
 	var images []string
-	baseURL := "https://cdn.hamzie.us.to/Hamzie-API/images/xiaojie/%d.jpg"
+	baseURL := "https://cdn.hamzie.site/Hamzie-API/images/xiaojie/%d.jpg"
 
 	for i := 1; i <= 135; i++ {
 		imageURL := fmt.Sprintf(baseURL, i)
@@ -21,7 +21,7 @@ func generateXiaojieImages() []string {
 
 var XiaojieImages = generateXiaojieImages()
 
-type ImageResponse struct {
+type ImageXiaojieResponse struct {
 	Link string `json:"link"`
 }
 
@@ -29,7 +29,7 @@ func GetRandomXiaojieImage(w http.ResponseWriter, r *http.Request) {
 	randomIndex := rand.Intn(len(XiaojieImages))
 	randomCat := XiaojieImages[randomIndex]
 
-	response := ImageResponse{
+	response := ImageXiaojieResponse{
 		Link: randomCat,
 	}
 

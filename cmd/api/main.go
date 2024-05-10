@@ -25,7 +25,7 @@ func main() {
 	// Custom 404 page
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusNotFound)
-		fmt.Fprint(w, "404 - Page Not Found. Make sure to read the docs at: docs.hamzie.us.to\n")
+		fmt.Fprint(w, `404 - Page Not Found. Make sure to read the docs: https://docs-api.hamzie.site/`)
 	})
 
 	// Start the server
