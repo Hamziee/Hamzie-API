@@ -3,23 +3,43 @@ package images
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"math/rand"
 	"net/http"
+	"strconv"
+	"strings"
 )
 
-func generateXiaojieImages() []string {
+func generateXiaojieImages() ([]string, error) {
 	var images []string
 	baseURL := "https://cdn.hamzie.site/Hamzie-API/images/xiaojie/%d.jpg"
 
-	for i := 1; i <= 152; i++ {
+	resp, err := http.Get("https://raw.githubusercontent.com/Hamziee/Hamzie-API/main/handlers/images/xiaojie-index.md")
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	index := strings.TrimSpace(string(body))
+	num, err := strconv.Atoi(index)
+	if err != nil {
+		return nil, err
+	}
+
+	for i := 1; i <= num; i++ {
 		imageURL := fmt.Sprintf(baseURL, i)
 		images = append(images, imageURL)
 	}
 
-	return images
+	return images, nil
 }
 
-var XiaojieImages = generateXiaojieImages()
+var XiaojieImages, _ = generateXiaojieImages()
 
 type ImageXiaojieResponse struct {
 	Link string `json:"link"`
