@@ -12,7 +12,7 @@ import (
 
 func generateHugGifs() ([]string, error) {
 	var images []string
-	baseURL := "https://cdn.hamzie.site/Hamzie-API/gifs/hug/%d.jpg"
+	baseURL := "https://cdn.hamzie.site/Hamzie-API/gifs/hug/%d.gif"
 
 	resp, err := http.Get("https://raw.githubusercontent.com/Hamziee/Hamzie-API/main/handlers/gifs/hug-index.md")
 	if err != nil {
