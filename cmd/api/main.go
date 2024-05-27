@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/Hamziee/Hamzie-API/handlers/gifs"
 	"github.com/Hamziee/Hamzie-API/handlers/images"
 )
 
@@ -20,8 +21,12 @@ func main() {
 	}
 
 	// Define routes
+	// Define Images routes
 	http.HandleFunc("/v1/images/cats", images.GetRandomCatImage)
 	http.HandleFunc("/v1/images/xiaojie", images.GetRandomXiaojieImage)
+
+	// Define Gifs routes
+	http.HandleFunc("/v1/gifs/cats", gifs.GetRandomHugGif)
 
 	// Custom 404 page
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
