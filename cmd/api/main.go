@@ -27,6 +27,7 @@ func main() {
 
 	// Define Gifs routes
 	http.HandleFunc("/v1/gifs/hug", gifs.GetRandomHugGif)
+	http.HandleFunc("/v1/gifs/kiss", gifs.GetRandomKissGif)
 
 	// Custom 404 page
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
