@@ -14,7 +14,7 @@ func generateHeadpatsGifs() ([]string, error) {
 	var images []string
 	baseURL := "https://cdn.hamzie.site/Hamzie-API/gifs/headpats/%d.gif"
 
-	resp, err := http.Get("https://raw.githubusercontent.com/Hamziee/Hamzie-API/main/handlers/gifs/headpats-index.md")
+	resp, err := http.Get("https://raw.githubusercontent.com/Hamziee/Hamzie-API/main/handlers/gifs/headpat-index.md")
 	if err != nil {
 		return nil, err
 	}
