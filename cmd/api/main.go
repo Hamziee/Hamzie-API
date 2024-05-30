@@ -29,6 +29,7 @@ func main() {
 	http.HandleFunc("/v1/gifs/hug", gifs.GetRandomHugGif)
 	http.HandleFunc("/v1/gifs/kiss", gifs.GetRandomKissGif)
 	http.HandleFunc("/v1/gifs/headpats", gifs.GetRandomHeadpatsGif)
+	http.HandleFunc("/v1/gifs/slap", gifs.GetRandomSlapGif)
 
 	// Custom 404 page
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
